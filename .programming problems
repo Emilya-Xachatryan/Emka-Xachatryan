@@ -1,0 +1,20 @@
+//Write a function that reverses characters in (possibly nested) parentheses in the input string.
+//Input strings will always be well-formed with matching ()s.
+
+//code
+function solution(inputString) {
+    const arr = [];
+    let x = '';
+    
+    for(const char of inputString){
+        if(char === '('){
+            arr.push(x);
+            x = '';
+        }else if(char === ')'){
+            x = arr.pop()+x.split('').reverse().join('');
+        }else{
+            x += char
+        }
+    }
+    return x;
+}
